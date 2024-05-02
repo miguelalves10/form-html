@@ -11,7 +11,9 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-
+    background: url("../img/cloud.jpg") no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 header {
@@ -22,8 +24,9 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: chocolate;
+    
     /* padding: 20px 100px; */
+    z-index: 99;
 }
 
 h2.logo {
@@ -32,12 +35,34 @@ h2.logo {
 }
 
 nav.menu a {
+    /* O position relative pega a partir do filho */
+    position: relative;
     font-size: 1em;
     color: white;
     text-decoration: none;
     font-weight: 500;
     margin-left: 40px;
 }
+
+.menu a:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    border-radius: 5px;
+    bottom: -6px;
+    transform: scaleX(0);
+    transition: transform .5s;
+}
+
+.menu a:hover:after {
+    transform-origin: left;
+    transform: scaleX(1);
+
+}
+
 
 nav button.btn-login {
     width: 130px;
@@ -52,7 +77,6 @@ nav button.btn-login {
 }
 
 main {
-    background-color: darkkhaki;
     position: relative;
     width: 400px;
     height: 400px;
@@ -60,4 +84,11 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: ;
 }
